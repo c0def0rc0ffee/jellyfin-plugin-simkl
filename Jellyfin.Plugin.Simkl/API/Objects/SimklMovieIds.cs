@@ -15,6 +15,9 @@ namespace Jellyfin.Plugin.Simkl.API.Objects
         public SimklMovieIds(Dictionary<string, string> providerMovieIds)
             : base(providerMovieIds)
         {
+            // Simkl uses "moviedb" for TMDB movie IDs, not "tmdb"
+            Moviedb = Tmdb;
+            Tmdb = null;
         }
 
         /// <summary>
